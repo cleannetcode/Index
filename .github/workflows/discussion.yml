@@ -7,9 +7,9 @@ jobs:
     steps:
       - name: echo data
         run: |
-          echo "action: ${{ github.action }}; sender: ${{ github.sender }}; discussion: ${{ github.discussion }}"
+          echo "action: ${{ github.action }} ${{ github.event_type }} ; sender: ${{ github.sender }} ; discussion: ${{ github.discussion }}"
       - name: send telegram message when discussion created
-        if: github.action == 'created'
+        if: ${{ github.action == 'created' }}
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
@@ -18,7 +18,7 @@ jobs:
             ${{ github.sender.login }} создал дискуссию: ${{ github.discussion.title }}
             url: ${{ github.discussion.html_url }}
       - name: send telegram message when discussion edited
-        if: github.action == 'edited'
+        if: ${{ github.action == 'edited' }}
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
@@ -27,7 +27,7 @@ jobs:
             ${{ github.sender.login }} обновил дискуссию: ${{ github.discussion.title }}
             url: ${{ github.discussion.html_url }}
       - name: send telegram message when discussion deleted
-        if: github.action == 'deleted'
+        if: ${{ github.action == 'deleted' }}
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
@@ -35,7 +35,7 @@ jobs:
           message: |
             ${{ github.sender.login }} удалил дискуссию: ${{ github.discussion.title }}
       - name: send telegram message when discussion pinned
-        if: github.action == 'pinned'
+        if: ${{ github.action == 'pinned' }}
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
@@ -44,7 +44,7 @@ jobs:
             ${{ github.sender.login }} закрепил дискуссию: ${{ github.discussion.title }}
             url: ${{ github.discussion.html_url }}
       - name: send telegram message on discussion answered
-        if: github.action == 'answered'
+        if: ${{ github.action == 'answered' }}
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
