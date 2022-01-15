@@ -5,9 +5,6 @@ jobs:
     name: HandleDiscussion
     runs-on: ubuntu-latest
     steps:
-      - name: echo data
-        run: |
-          echo "payload: ${{ toJson(github.event) }}"
       - name: send telegram message when discussion created
         if: github.event.action == 'created'
         uses: appleboy/telegram-action@master
