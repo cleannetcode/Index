@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: echo data
         run: |
-          echo "${{ github }}  action: ${{ github.action }} ${{ github.event_type }} ; sender: ${{ github.sender }} ; discussion: ${{ github.discussion }}"
+          echo "payload: ${{ toJson(github) }}"
       - name: send telegram message when discussion created
         if: ${{ github.action == 'created' }}
         uses: appleboy/telegram-action@master
