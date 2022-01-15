@@ -1,0 +1,51 @@
+name: discussion telegram message
+on: [discussion]
+jobs:
+  handle_discussion:
+    name: HandleDiscussion
+    runs-on: ubuntu-latest
+    steps:
+      - name: send telegram message when discussion created
+        if: github.event.action == 'created'
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            ${{ github.event.sender.login }} создал дискуссию: ${{ github.event.discussion.title }}
+            url: ${{ github.event.discussion.html_url }}
+      - name: send telegram message when discussion edited
+        if: github.event.action == 'edited'
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            ${{ github.event.sender.login }} обновил дискуссию: ${{ github.event.discussion.title }}
+            url: ${{ github.event.discussion.html_url }}
+      - name: send telegram message when discussion deleted
+        if: github.event.action == 'deleted'
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            ${{ github.event.sender.login }} удалил дискуссию: ${{ github.event.discussion.title }}
+      - name: send telegram message when discussion pinned
+        if: github.event.action == 'pinned'
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            ${{ github.event.sender.login }} закрепил дискуссию: ${{ github.event.discussion.title }}
+            url: ${{ github.event.discussion.html_url }}
+      - name: send telegram message on discussion answered
+        if: github.event.action == 'answered'
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            ${{ github.event.sender.login }} закрыл дискуссию: ${{ github.event.discussion.title }}
+            url: ${{ github.event.discussion.html_url }}
