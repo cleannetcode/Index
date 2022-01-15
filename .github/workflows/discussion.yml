@@ -1,8 +1,8 @@
-name: telegram message
+name: discussion telegram message
 on:  discussion
 jobs:
   handle_discussion:
-    name: Handle
+    name: Handle ${{ github.action }}
     runs-on: ubuntu-latest
     steps:
       - name: send telegram message when discussion created
