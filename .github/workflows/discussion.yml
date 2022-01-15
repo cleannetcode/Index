@@ -7,48 +7,48 @@ jobs:
     steps:
       - name: echo data
         run: |
-          echo "payload: ${{ toJson(github) }}"
+          echo "payload: ${{ toJson(github.event) }}"
       - name: send telegram message when discussion created
-        if: ${{ github.action == 'created' }}
+        if: github.event.action == 'created'
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-            ${{ github.sender.login }} создал дискуссию: ${{ github.discussion.title }}
-            url: ${{ github.discussion.html_url }}
+            ${{ github.event.sender.login }} создал дискуссию: ${{ github.event.discussion.title }}
+            url: ${{ github.event.discussion.html_url }}
       - name: send telegram message when discussion edited
-        if: ${{ github.action == 'edited' }}
+        if: github.event.action == 'edited'
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-            ${{ github.sender.login }} обновил дискуссию: ${{ github.discussion.title }}
-            url: ${{ github.discussion.html_url }}
+            ${{ github.event.sender.login }} обновил дискуссию: ${{ github.event.discussion.title }}
+            url: ${{ github.event.discussion.html_url }}
       - name: send telegram message when discussion deleted
-        if: ${{ github.action == 'deleted' }}
+        if: github.event.action == 'deleted'
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-            ${{ github.sender.login }} удалил дискуссию: ${{ github.discussion.title }}
+            ${{ github.event.sender.login }} удалил дискуссию: ${{ github.event.discussion.title }}
       - name: send telegram message when discussion pinned
-        if: ${{ github.action == 'pinned' }}
+        if: github.event.action == 'pinned'
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-            ${{ github.sender.login }} закрепил дискуссию: ${{ github.discussion.title }}
-            url: ${{ github.discussion.html_url }}
+            ${{ github.event.sender.login }} закрепил дискуссию: ${{ github.event.discussion.title }}
+            url: ${{ github.event.discussion.html_url }}
       - name: send telegram message on discussion answered
-        if: ${{ github.action == 'answered' }}
+        if: github.event.action == 'answered'
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-            ${{ github.sender.login }} закрыл дискуссию: ${{ github.discussion.title }}
-            url: ${{ github.discussion.html_url }}
+            ${{ github.event.sender.login }} закрыл дискуссию: ${{ github.event.discussion.title }}
+            url: ${{ github.event.discussion.html_url }}
