@@ -1,5 +1,5 @@
 name: discussion telegram message
-on:  discussion
+on: [discussion]
 jobs:
   handle_discussion:
     name: HandleDiscussion
@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: echo data
         run: |
-          echo "action: ${{ github.action }}; sender: ${{ github.sender.login }}; discussion: ${{ github.discussion.title }}"
+          echo "action: ${{ github.action }}; sender: ${{ github.sender }}; discussion: ${{ github.discussion }}"
       - name: send telegram message when discussion created
         if: github.action == 'created'
         uses: appleboy/telegram-action@master
