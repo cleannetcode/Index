@@ -148,3 +148,5 @@
 🤓 Новичок | 18 (вс) | -  Мучаемся на фронте?
 😎Продвинутый | 24 (сб) | - Мучаемся на фронте?
 🤓 Новичок | 25 (вс) | -  Мучаемся на фронте?
+
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdd5Pnm6paGKbi3pYFEU1oM4lrzog-_pxXIYHiRQoCHvSZCvw/viewform?embedded=true" width="700" height="520" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
