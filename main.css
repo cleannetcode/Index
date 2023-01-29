@@ -1,0 +1,165 @@
+* {
+  background-color: #1e1e1e;
+  color: aqua;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.wrapper {
+  max-width: 1730px;
+  padding: 0px 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+}
+
+header .brand-name {
+  font-family: "Arial";
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 76px;
+  line-height: 84px;
+  text-align: center;
+  letter-spacing: -0.07em;
+
+  color: #27c7ea;
+}
+
+header .header-menu {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+header .header-menu a {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  letter-spacing: 0.16em;
+  text-decoration-line: none;
+
+  color: #27c7ea;
+}
+
+main {
+  padding: 0px 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.background-image {
+  width: 879px;
+  height: 867px;
+}
+
+@media screen and (max-width: 1600px) {
+  .background-image {
+    width: 679px;
+    height: 667px;
+  }
+}
+
+@media screen and (max-width: 1420px) {
+  .background-image {
+    width: 379px;
+    height: 367px;
+  }
+}
+
+main .title h1 {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 96px;
+  line-height: 110px;
+  text-align: center;
+
+  mix-blend-mode: normal;
+
+  color: #27c7ea;
+
+  text-shadow: 7px 4px 0px rgba(39, 199, 234, 0.36);
+}
+
+main .slogan {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 55px;
+  text-align: center;
+
+  color: #27c7ea;
+
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+main .description {
+  font-family: "Courier New";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 34px;
+  text-align: center;
+
+  color: #f7f7f7;
+
+  mix-blend-mode: normal;
+}
+
+main .info {
+  padding-bottom: 32px;
+}
+
+main .join-us {
+  display: flex;
+  justify-content: center;
+}
+
+main .join-us-btn {
+  background: #f67545;
+  border-radius: 27px;
+
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 41px;
+  text-align: center;
+
+  color: #121014;
+  padding: 3px 12px;
+  text-decoration: none;
+}
+
+main .join-us-btn:hover {
+  background: #6cdb47;
+}
+
+.header-menu a:hover {
+  text-decoration-line: underline;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  height: 2.5rem;
+}
