@@ -66,14 +66,14 @@ main {
 }
 
 .background-image {
-  width: 879px;
-  height: 867px;
+  width: 679px;
+  height: 667px;
 }
 
 @media screen and (max-width: 1600px) {
   .background-image {
-    width: 679px;
-    height: 667px;
+    width: 479px;
+    height: 467px;
   }
 }
 
